@@ -16,6 +16,8 @@
             background-color: #2e2e2e;
             color: #fff;
             overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
         }
         h1 {
             font-size: 3rem;
@@ -29,6 +31,7 @@
         }
         #timer {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
             align-items: center;
@@ -100,6 +103,37 @@
             width: 0%;
             transition: width 0.1s linear;
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            #timer {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            .time-unit {
+                font-size: 1.5rem;
+                min-width: 60px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .time-unit {
+                font-size: 1.2rem;
+                min-width: 50px;
+                padding: 6px;
+            }
+            .custom-audio-player {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -124,9 +158,6 @@
     </div>
     
     <script>
-        
-
-
         function updateTimer() {
             const startDate = new Date('2024-05-17T00:00:00');
             const now = new Date();
