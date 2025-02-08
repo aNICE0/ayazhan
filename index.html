@@ -19,14 +19,17 @@
             padding: 20px;
             box-sizing: border-box;
         }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
         h1 {
             font-size: 3rem;
             color: #ff69b4;
             margin-bottom: 20px;
-            text-align: center;
             transition: transform 0.3s ease-in-out;
-            width: 100%;
-            max-width: 500px;
         }
         h1:hover {
             transform: scale(1.1);
@@ -42,8 +45,6 @@
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
             transition: box-shadow 0.3s;
-            width: 100%;
-            max-width: 500px;
         }
         .time-unit {
             display: flex;
@@ -54,8 +55,7 @@
             padding: 10px;
             border-radius: 10px;
             background: #444;
-            width: 100%;
-            max-width: 120px;
+            width: 100px;
             transition: transform 0.3s;
         }
         .time-unit:hover {
@@ -63,9 +63,6 @@
         }
         #player-container {
             margin-top: 30px;
-            text-align: center;
-            width: 100%;
-            max-width: 500px;
         }
         .custom-audio-player {
             display: flex;
@@ -74,7 +71,6 @@
             background: #444;
             padding: 10px;
             border-radius: 15px;
-            width: 100%;
         }
         .progress-bar {
             flex: 1;
@@ -90,18 +86,12 @@
             width: 0%;
             transition: width 0.1s linear;
         }
-
         @media (max-width: 768px) {
-            .time-unit, h1, #timer, #player-container, .custom-audio-player {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
+            .container {
+                max-width: 90%;
             }
             .time-unit {
+                width: 80px;
                 font-size: 1.5rem;
                 padding: 8px;
             }
@@ -109,43 +99,40 @@
     </style>
 </head>
 <body>
-    <h1>I LOVE AYAZHAN</h1>
-    <div id="timer">
-        <span class="heart">❤</span>
-        <div class="time-unit" id="days">00 <span>days</span></div>
-        <div class="time-unit" id="hours">00 <span>hours</span></div>
-        <div class="time-unit" id="minutes">00 <span>minutes</span></div>
-        <div class="time-unit" id="seconds">00 <span>seconds</span></div>
-        <span class="heart">❤</span>
-    </div>
-    
-    <div id="player-container">
-        <p id="song-title">Song that describes Ayazhan</p>
-        <div class="custom-audio-player">
-            <button class="play-btn">▶</button>
-            <div class="progress-bar">
-                <div class="progress"></div>
+    <div class="container">
+        <h1>I LOVE AYAZHAN</h1>
+        <div id="timer">
+            <span class="heart">❤</span>
+            <div class="time-unit" id="days">00 <span>days</span></div>
+            <div class="time-unit" id="hours">00 <span>hours</span></div>
+            <div class="time-unit" id="minutes">00 <span>minutes</span></div>
+            <div class="time-unit" id="seconds">00 <span>seconds</span></div>
+            <span class="heart">❤</span>
+        </div>
+        <div id="player-container">
+            <p id="song-title">Song that describes Ayazhan</p>
+            <div class="custom-audio-player">
+                <button class="play-btn">▶</button>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
             </div>
         </div>
     </div>
-    
     <script>
         function updateTimer() {
             const startDate = new Date('2024-05-17T00:00:00');
             const now = new Date();
             const elapsed = now - startDate;
-
             const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
             const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
-
             document.getElementById('days').childNodes[0].nodeValue = String(days).padStart(2, '0');
             document.getElementById('hours').childNodes[0].nodeValue = String(hours).padStart(2, '0');
             document.getElementById('minutes').childNodes[0].nodeValue = String(minutes).padStart(2, '0');
             document.getElementById('seconds').childNodes[0].nodeValue = String(seconds).padStart(2, '0');
         }
-
         setInterval(updateTimer, 1000);
         updateTimer();
     </script>
