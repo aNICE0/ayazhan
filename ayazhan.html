@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love Ayazhan</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #2e2e2e;
+            color: #fff;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        h1:hover {
+            transform: scale(1.1);
+        }
+        #timer {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #ff69b4, #6c6c6c);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            transition: box-shadow 0.3s;
+        }
+        #timer:hover {
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+        }
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 2rem;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            background: #444;
+            min-width: 80px;
+            transition: transform 0.3s;
+        }
+        .time-unit:hover {
+            transform: scale(1.1);
+        }
+        .time-unit span {
+            font-size: 0.7rem;
+            color: rgba(255, 105, 180, 0.7);
+            margin-top: 5px;
+        }
+        #player-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #song-title {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #ff69b4;
+        }
+        .custom-audio-player {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #444;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        .play-btn {
+            background: #ff69b4;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .progress-bar {
+            flex: 1;
+            height: 5px;
+            background: #666;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress {
+            height: 100%;
+            background: #ff69b4;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <h1>I LOVE AYAZHAN</h1>
+    <div id="timer">
+        <span class="heart">❤</span>
+        <div class="time-unit" id="days">00 <span>days</span></div>
+        <div class="time-unit" id="hours">00 <span>hours</span></div>
+        <div class="time-unit" id="minutes">00 <span>minutes</span></div>
+        <div class="time-unit" id="seconds">00 <span>seconds</span></div>
+        <span class="heart">❤</span>
+    </div>
+    
+    <div id="player-container">
+        <p id="song-title">Song that describes Ayazhan</p>
+        <div class="custom-audio-player">
+            <button class="play-btn">▶</button>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+
+
+        function updateTimer() {
+            const startDate = new Date('2024-05-17T00:00:00');
+            const now = new Date();
+            const elapsed = now - startDate;
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+            document.getElementById('days').childNodes[0].nodeValue = String(days).padStart(2, '0');
+            document.getElementById('hours').childNodes[0].nodeValue = String(hours).padStart(2, '0');
+            document.getElementById('minutes').childNodes[0].nodeValue = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').childNodes[0].nodeValue = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
