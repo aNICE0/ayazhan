@@ -40,11 +40,11 @@
 
         .countdown div {
             background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #1a1a1a);
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 20px;
             text-align: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
             color: #ff69b4;
             flex: 1;
         }
@@ -69,7 +69,7 @@
             margin: 20px auto;
             padding: 10px;
             background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #ff69b4);
-            border-radius: 12px;
+            border-radius: 5px;
             box-shadow: 0 4px 15px rgba(255, 20, 147, 0.7);
             text-align: center;
             color: #fff;
@@ -101,13 +101,14 @@
         }
 
         .card {
-            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #31031a);
+            font-family: 'Geist', Arial, sans-serif;;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #14000a);
             color: #fff;
-            border-radius: 16px;
+            border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 10px 10px rgba(255, 105, 180, 0.7);
+            box-shadow: 10px 2px 20px rgba(255, 105, 180, 0.7);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            cursor: auto;
         }
 
         .card:hover {
@@ -139,7 +140,7 @@
             }
 
             .music-player {
-                max-width: 90%;
+                max-width: 100%;
             }
 
             .card {
@@ -253,16 +254,16 @@
         setInterval(countdown, 1000);
 
         const songs = [
-            { title: "Song 1", src: "song1.mp3" },
-            { title: "Song 2", src: "song2.mp3" },
-            { title: "Song 3", src: "song3.mp3" },
-            { title: "Song 4", src: "song4.mp3" },
-            { title: "Song 5", src: "song5.mp3" },
-            { title: "Song 6", src: "song6.mp3" },
-            { title: "Song 7", src: "song7.mp3" },
-            { title: "Song 8", src: "song8.mp3" },
-            { title: "Song 9", src: "song9.mp3" },
-            { title: "Song 10", src: "song10.mp3" }
+            { title: "Something", src: "1.mp3" },
+            { title: "Girl", src: "2.mp3" },
+            { title: "I live for you", src: "song3.mp3" },
+            { title: "And I love her", src: "song4.mp3" },
+            { title: "Happiness is a Warm Gun", src: "song5.mp3" },
+            { title: "Any Color You Like", src: "song6.mp3" },
+            { title: "Dark Globe", src: "song7.mp3" },
+            { title: "Riot Van", src: "song8.mp3" },
+            { title: "Here, There and Everywhere", src: "song9.mp3" },
+            { title: "Hold On!", src: "song10.mp3" }
         ];
 
         function loadRandomSong() {
