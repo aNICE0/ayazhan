@@ -10,8 +10,9 @@
         body {
             margin: 0;
             font-family: 'Geist', Arial, sans-serif;
-            background: #1a1a1a;
-            color: #fff;
+            background: linear-gradient(290deg,#ff69b4,#1a1a1a,#000000);
+            background-size: 180% 180%;
+            animation: gradient-animation 3s ease infinite;
         }
 
         header {
@@ -38,7 +39,7 @@
         }
 
         .countdown div {
-            background: #333;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #1a1a1a);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
@@ -64,11 +65,12 @@
         }
 
         .music-player {
+            opacity: 70%;
             margin: 20px auto;
             padding: 10px;
-            background: #333;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #ff69b4);
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.7);
             text-align: center;
             color: #fff;
             max-width: 400px;
@@ -88,30 +90,30 @@
             color: #ff69b4;
         }
 
-        .cards {
-            display: flex;
+        .cards-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
             gap: 20px;
-            overflow-x: auto;
-            padding: 20px;
-            scroll-snap-type: x mandatory;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            justify-content: center;
         }
 
         .card {
-            background: linear-gradient(145deg, #ff69b4, #ff1493);
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #31031a);
             color: #fff;
             border-radius: 16px;
             padding: 20px;
-            flex: 0 0 auto;
-            width: 250px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 10px rgba(255, 105, 180, 0.7);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            scroll-snap-align: start;
-            cursor: grab;
+            cursor: pointer;
         }
 
         .card:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.7);
+            box-shadow: 0 6px 30px rgba(255, 20, 147, 0.8);
+            opacity: 95%;
         }
 
         footer {
@@ -119,10 +121,6 @@
             padding: 20px;
             color: #fff;
             background: #111;
-        }
-
-        .card:active {
-            cursor: grabbing;
         }
 
         @media (max-width: 768px) {
@@ -144,12 +142,7 @@
                 max-width: 90%;
             }
 
-            .cards {
-                padding: 10px;
-            }
-
             .card {
-                width: 200px;
                 padding: 15px;
             }
         }
@@ -169,19 +162,26 @@
                 font-size: 1.5rem;
             }
 
-            .cards {
-                gap: 10px;
-            }
-
             .card {
-                width: 180px;
                 padding: 10px;
             }
+        }
+
+                @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
         }
     </style>
 </head>
 <body>
-    <header>Я люблю Аяшку</header>
+    <header><h3>Я люблю Аяшку</h3></header>
 
     <div class="countdown-container">
         <div class="countdown" id="countdown">
@@ -205,7 +205,7 @@
 
     <section class="why-love-section">
         <h2>Почему я тебя люблю?</h2>
-        <div class="cards" id="cards">
+        <div class="cards-container" id="cards">
             <div class="card">За твою улыбку – Она освещает мой мир каждый день.</div>
             <div class="card">За твою доброту – Ты всегда знаешь, как сделать окружающих счастливыми.</div>
             <div class="card">За твой смех – Это самый прекрасный звук, который я когда-либо слышал.</div>
@@ -229,11 +229,14 @@
         </div>
     </section>
 
-    <footer>Alimzhan, 2025</footer>
+    <footer>
+        Alimzhan, 2025
+    </footer>
 
     <script>
-        function updateCountdown() {
-            const startDate = new Date('2024-05-17T00:00:00');
+        // Countdown timer logic
+        const countdown = () => {
+            const startDate = new Date("2024-05-17");
             const now = new Date();
             const diff = now - startDate;
 
@@ -242,13 +245,12 @@
             const minutes = Math.floor((diff / (1000 * 60)) % 60);
             const seconds = Math.floor((diff / 1000) % 60);
 
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-        }
-
-        setInterval(updateCountdown, 1000);
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        };
+        setInterval(countdown, 1000);
 
         const songs = [
             { title: "Song 1", src: "song1.mp3" },
