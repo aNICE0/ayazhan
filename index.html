@@ -42,7 +42,7 @@
             border-radius: 12px;
             padding: 20px;
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
             color: #ff69b4;
             flex: 1;
@@ -50,7 +50,7 @@
 
         .countdown div span {
             display: block;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
         }
 
@@ -123,6 +123,60 @@
 
         .card:active {
             cursor: grabbing;
+        }
+
+        @media (max-width: 768px) {
+            .countdown {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .countdown div {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+
+            .countdown div span {
+                font-size: 2rem;
+            }
+
+            .music-player {
+                max-width: 90%;
+            }
+
+            .cards {
+                padding: 10px;
+            }
+
+            .card {
+                width: 200px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 2rem;
+                padding: 15px;
+            }
+
+            .countdown div {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .countdown div span {
+                font-size: 1.5rem;
+            }
+
+            .cards {
+                gap: 10px;
+            }
+
+            .card {
+                width: 180px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
