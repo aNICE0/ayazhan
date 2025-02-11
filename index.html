@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Я люблю Аяшку</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Geist', Arial, sans-serif;
+            background: linear-gradient(260deg,#ff69b4,#1a1a1a,#000000);
+            background-size: 180% 180%;
+            animation: gradient-animation 3s ease infinite;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            font-size: 2.5rem;
+            color: #ff69b4;
+        }
+
+        .footer_text {
+            color: gray;
+        }
+
+        .countdown-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 600px;
+            gap: 10px;
+        }
+
+        .countdown div {
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #1a1a1a);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
+            color: #ff69b4;
+            flex: 1;
+        }
+
+        .countdown div span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .music-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .music-section h2 {
+            color: #ff69b4;
+        }
+
+        .music-player {
+            opacity: 70%;
+            margin: 20px auto;
+            padding: 10px;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #ff69b4);
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.7);
+            text-align: center;
+            color: #fff;
+            max-width: 400px;
+        }
+
+        .music-player audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .why-love-section {
+            text-align: center;
+            margin: 40px auto;
+        }
+
+        .why-love-section h2 {
+            color: #ff69b4;
+        }
+
+        .cards-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            justify-content: center;
+        }
+
+        .card {
+            font-family: 'Geist', Arial, sans-serif;;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), #14000a);
+            color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 10px 2px 20px rgba(255, 105, 180, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: auto;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 20, 147, 0.8);
+            opacity: 95%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            background: #111;
+        }
+
+        @media (max-width: 768px) {
+            .countdown {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .countdown div {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+
+            .countdown div span {
+                font-size: 2rem;
+            }
+
+            .music-player {
+                max-width: 100%;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 2rem;
+                padding: 15px;
+            }
+
+            .countdown div {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .countdown div span {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 10px;
+            }
+        }
+
+                @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header><h3>Я ЛЮБЛЮ АЯШКУ</h3></header>
+
+    <div class="countdown-container">
+        <div class="countdown" id="countdown">
+            <div><span id="days">0</span> дней</div>
+            <div><span id="hours">0</span> часов</div>
+            <div><span id="minutes">0</span> минут</div>
+            <div><span id="seconds">0</span> секунд</div>
+        </div>
+    </div>
+
+    <section class="music-section">
+        <h2>Music for Ayazhan</h2>
+        <div class="music-player" id="music-player">
+            <div id="song-title">Loading...</div>
+            <audio controls id="audio-player">
+                <source id="audio-source" src="" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </section>
+
+    <section class="why-love-section">
+        <h2>Почему я тебя люблю?</h2>
+        <div class="cards-container" id="cards">
+            <div class="card">За твою улыбку – Она освещает мой мир каждый день.</div>
+            <div class="card">За твою доброту – Ты всегда знаешь, как сделать окружающих счастливыми.</div>
+            <div class="card">За твой смех – Это самый прекрасный звук, который я когда-либо слышал.</div>
+            <div class="card">За твою силу – Ты вдохновляешь меня становиться лучше.</div>
+            <div class="card">За твой ум – Ты всегда удивляешь меня своей мудростью и идеями.</div>
+            <div class="card">За твои объятия – В них я чувствую себя в безопасности и любимым.</div>
+            <div class="card">За твоё терпение – Ты всегда понимаешь меня, даже когда я бываю трудным.</div>
+            <div class="card">За твоё чувство юмора – Ты умеешь рассмешить меня даже в самые сложные дни.</div>
+            <div class="card">За твою красоту – Внутри и снаружи ты самая прекрасная.</div>
+            <div class="card">За твою поддержку – Ты всегда рядом, несмотря ни на что.</div>
+            <div class="card">За твои мечты – Ты заставляешь меня верить, что всё возможно.</div>
+            <div class="card">За твою честность – Ты всегда говоришь мне правду, какой бы она ни была.</div>
+            <div class="card">За твою готовку – Ты делаешь самые вкусные блюда (даже если это просто чай).</div>
+            <div class="card">За твою страсть – Ты вкладываешь душу во всё, что делаешь.</div>
+            <div class="card">За твои странности – Они делают тебя уникальной, и я обожаю каждую из них.</div>
+            <div class="card">За твою любовь – Это самый ценный подарок в моей жизни.</div>
+            <div class="card">За твою смелость – Ты не боишься встречать трудности лицом к лицу.</div>
+            <div class="card">За твою креативность – Ты видишь мир так красиво и необычно.</div>
+            <div class="card">За твоё тепло – Ты делаешь любое место уютным, как дом.</div>
+            <div class="card">За то, что ты есть – Ты идеальна такой, какая ты есть.</div>
+        </div>
+    </section>
+
+    <footer>
+        <br>Alimzhan, 2025
+        <p class="footer_text">Я тебя очень сильно люблю</p>
+    </footer>
+
+    <script>
+        const countdown = () => {
+            const startDate = new Date("2024-05-17");
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        };
+        setInterval(countdown, 1000);
+
+        const songs = [
+            { title: "Something", src: "1.mp3" },
+            { title: "Girl", src: "2.mp3" },
+            { title: "I live for you", src: "3.mp3" },
+            { title: "And I love her", src: "4.mp3" },
+            { title: "Happiness is a Warm Gun", src: "5.mp3" },
+            { title: "Any Color You Like", src: "6.mp3" },
+            { title: "Dark Globe", src: "7.mp3" },
+            { title: "Riot Van", src: "8.mp3" },
+            { title: "Here, There and Everywhere", src: "9.mp3" },
+            { title: "Hold On!", src: "10.mp3" }
+        ];
+
+        function loadRandomSong() {
+            const randomIndex = Math.floor(Math.random() * songs.length);
+            const song = songs[randomIndex];
+            document.getElementById('song-title').textContent = song.title;
+            document.getElementById('audio-source').src = song.src;
+            document.getElementById('audio-player').load();
+        }
+
+        loadRandomSong();
+    </script>
+</body>
+</html>
